@@ -1,0 +1,21 @@
+
+body{
+	text-align: center;
+}
+
+
+#clock{
+	margin: 10%;
+	width: 80%;
+	border: 10px solid #49BE60FF;
+	background-color: black;
+	color: white;
+	font: 10vw helvetica;
+
+}
+#stopwatch{
+	border: 10px solid black;
+}
+button{
+	margin: 10px;
+}
