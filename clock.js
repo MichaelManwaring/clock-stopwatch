@@ -36,15 +36,17 @@ setInterval(function(){
 // ensure milliseconds is 2 digit
 
 		if (milliseconds.length == 1){
+			var milliseconds = "00"+milliseconds;
+		}else if (milliseconds.length==2){
 			var milliseconds = "0"+milliseconds;
-		};
+		}
 // apply variables to clock
 
 	$("#hour").text(hours);
 	$("#minute").text(minutes);
 	$("#second").text(seconds);
 	$("#millisecond").text(milliseconds);
-}, 1000)
+},999)
 
 
 
@@ -64,7 +66,7 @@ $("#start").one("click",function(){
 			smilliseconds = smilliseconds + 1
 		};
 		// rollover seconds
-		if (smilliseconds == 10) {
+		if (smilliseconds == 100) {
 			smilliseconds=0
 			sseconds = sseconds+1
 		}; 
@@ -78,7 +80,12 @@ $("#start").one("click",function(){
 			sminutes=0
 			shours = shours+1
 		};
-		
+		// 2dig milliseconds
+		if (smilliseconds<10) {
+			smillisecondst="0"+smilliseconds
+		}else{
+			smillisecondst= smilliseconds
+		};
 		// 2dig seconds
 		if (sseconds<10) {
 			ssecondst="0"+sseconds
@@ -101,26 +108,28 @@ $("#start").one("click",function(){
 		$("#shour").text(shourst);
 		$("#sminute").text(sminutest);
 		$("#ssecond").text(ssecondst);
-		$("#smillisecond").text(smilliseconds);
+		$("#smillisecond").text(smillisecondst);
 
-	}, 100);
+	}, 10);
 	$("#stop").click(function(){
 		isPause = !isPause
 	})
-	$("#reset").click(function(){
-		console.log("reset")
-		var smilliseconds = 0
-		var sseconds = 0
-		var sminutes = 0
-		var shours = 0
-	})
+});
+
+$("#reset").click(function(){
+	location.reload();
+});
+
+	
+
+
+
+
+
+
 });
 
 
-
-
-
-
-
-
-});
+function gizmo(y){
+	return y/2;
+};
